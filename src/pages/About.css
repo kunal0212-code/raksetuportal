@@ -1,106 +1,121 @@
+/* About Page */
 .about-hero {
-    background-color: var(--secondary-bg);
-    padding: 5rem 0 3rem;
-    text-align: center;
+    background: var(--primary);
+    color: var(--white);
+    padding: 2rem 0;
 }
 
-.about-title {
-    font-size: 3rem;
-    color: var(--text-dark);
+.about-hero h1 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.about-hero p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.about-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.about-mission,
+.about-story {
+    padding: 2rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+}
+
+.mission-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary-bg);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 1rem;
 }
 
-.about-subtitle {
-    font-size: 1.25rem;
-    color: var(--gray-500);
-    max-width: 700px;
-    margin: 0 auto;
+.about-mission h2,
+.about-story h2 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
 }
 
-.mission-section {
-    padding: 5rem 0;
-    background-color: var(--white);
+.about-mission p,
+.about-story p {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    line-height: 1.7;
 }
 
-.mission-content h2 {
-    font-size: 2.25rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--text-dark);
-}
-
-.mission-content>p {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem;
-    font-size: 1.15rem;
-    color: var(--gray-500);
-    line-height: 1.6;
+/* Values */
+.values-section {
+    background: var(--gray-50);
 }
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-.value-item {
+.value-card {
     text-align: center;
-    padding: 2rem;
-    background: var(--gray-100);
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+}
+
+.value-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
 .value-icon {
-    color: var(--primary-red);
     width: 48px;
     height: 48px;
-    margin-bottom: 1.5rem;
-}
-
-.value-item h3 {
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-}
-
-.value-item p {
-    color: var(--gray-500);
-}
-
-.story-section {
-    padding: 5rem 0;
-    background-color: var(--secondary-bg);
-}
-
-.story-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    border-radius: 50%;
+    background: var(--primary-bg);
+    color: var(--primary);
+    display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem;
 }
 
-.image-placeholder-block {
-    width: 100%;
-    height: 400px;
-    background-color: var(--gray-200);
-    border-radius: var(--radius-lg);
+.value-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
 }
 
-.story-text h2 {
-    font-size: 2.25rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark);
-}
-
-.story-text p {
-    font-size: 1.1rem;
+.value-card p {
+    font-size: 0.8rem;
     color: var(--gray-500);
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-    .story-container {
+@media (max-width: 900px) {
+    .about-mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .values-grid {
         grid-template-columns: 1fr;
     }
 }

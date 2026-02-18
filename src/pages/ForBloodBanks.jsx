@@ -1,93 +1,86 @@
 import React from 'react';
-import { LayoutDashboard, Users, Zap, Award, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import {
+    BarChart3, Package, Users, Bell, ShieldCheck,
+    Calendar, Zap, Globe, CheckCircle
+} from 'lucide-react';
 import Button from '../components/Button';
 import './ForBloodBanks.css';
 
-const BenefitCard = ({ icon: Icon, title, description }) => (
-    <div className="benefit-card">
-        <Icon size={40} className="benefit-icon" />
-        <h3>{title}</h3>
-        <p>{description}</p>
-    </div>
-);
+const benefits = [
+    { icon: Package, title: 'Inventory Management', desc: 'Real-time tracking of all blood groups and components with expiry alerts.' },
+    { icon: BarChart3, title: 'Analytics Dashboard', desc: 'Demand forecasting, usage trends, and operational performance metrics.' },
+    { icon: Users, title: 'Donor Network', desc: 'Access to thousands of registered donors for camp organization and matching.' },
+    { icon: Bell, title: 'Smart Alerts', desc: 'Automated notifications for low stock, emergency requests, and expirations.' },
+    { icon: ShieldCheck, title: 'Verified Badge', desc: 'Build trust with a verified center badge visible to all users on the platform.' },
+    { icon: Globe, title: 'Nationwide Visibility', desc: 'Your center appears in search results across all states and districts.' },
+];
 
 const ForBloodBanks = () => {
     return (
-        <div className="blood-banks-page">
+        <div className="bb-page">
             <section className="bb-hero">
-                <div className="container bb-hero-container">
-                    <div className="bb-hero-content">
-                        <h1>Partner with RaktSetu to Save More Lives</h1>
-                        <p>Digitize your inventory, manage donors efficiently, and respond to emergencies instantly.</p>
-                        <Button variant="primary" className="btn-lg">Register Your Blood Bank</Button>
+                <div className="container">
+                    <h1>For Blood Banks</h1>
+                    <p>Join India's largest digital blood management network. Streamline operations and save more lives.</p>
+                </div>
+            </section>
+
+            <section className="section">
+                <div className="container">
+                    <h2 className="section-title text-center">Why Register with RaktSetu?</h2>
+                    <div className="bb-benefits-grid">
+                        {benefits.map((item, i) => {
+                            const Icon = item.icon;
+                            return (
+                                <div key={i} className="bb-benefit">
+                                    <div className="bb-icon-wrap">
+                                        <Icon size={24} />
+                                    </div>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.desc}</p>
+                                </div>
+                            );
+                        })}
                     </div>
-                    <div className="bb-hero-image">
-                        {/* Placeholder for dashboard screenshot */}
-                        <div className="dashboard-preview">
-                            <div className="preview-header">
-                                <div className="dot"></div>
-                                <div className="dot"></div>
-                                <div className="dot"></div>
+                </div>
+            </section>
+
+            <section className="bb-integration-section">
+                <div className="container bb-integration-grid">
+                    <div className="bb-integration-content">
+                        <h2 className="section-title">Seamless Integration</h2>
+                        <p>RaktSetu integrates effortlessly with your existing systems. Our platform is designed to complement your workflow, not replace it.</p>
+                        <ul className="bb-checklist">
+                            <li><CheckCircle size={16} className="check-green" /> No hardware installation required</li>
+                            <li><CheckCircle size={16} className="check-green" /> Web-based dashboard — access from anywhere</li>
+                            <li><CheckCircle size={16} className="check-green" /> API integration for existing software</li>
+                            <li><CheckCircle size={16} className="check-green" /> Dedicated onboarding support</li>
+                            <li><CheckCircle size={16} className="check-green" /> Free for government blood banks</li>
+                        </ul>
+                        <Link to="/contact">
+                            <Button variant="primary">Register Your Blood Bank</Button>
+                        </Link>
+                    </div>
+                    <div className="bb-integration-visual">
+                        <div className="dashboard-mockup">
+                            <div className="mock-header">
+                                <span className="mock-dot"></span>
+                                <span className="mock-dot"></span>
+                                <span className="mock-dot"></span>
                             </div>
-                            <div className="preview-body">
-                                <div className="preview-sidebar"></div>
-                                <div className="preview-main">
-                                    <div className="preview-card"></div>
-                                    <div className="preview-card"></div>
-                                    <div className="preview-card"></div>
-                                    <div className="preview-chart"></div>
+                            <div className="mock-content">
+                                <div className="mock-sidebar">
+                                    <div className="mock-bar" style={{ width: '80%' }}></div>
+                                    <div className="mock-bar" style={{ width: '60%' }}></div>
+                                    <div className="mock-bar" style={{ width: '90%' }}></div>
+                                    <div className="mock-bar" style={{ width: '45%' }}></div>
+                                </div>
+                                <div className="mock-main">
+                                    <div className="mock-chart"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="bb-benefits">
-                <div className="container">
-                    <div className="text-center section-header">
-                        <h2 className="section-title">Why Join RaktSetu?</h2>
-                        <p className="section-subtitle">We provide a comprehensive suite of tools designed for modern blood banks.</p>
-                    </div>
-                    <div className="benefits-grid">
-                        <BenefitCard
-                            icon={LayoutDashboard}
-                            title="Digital Inventory Management"
-                            description="Say goodbye to manual registers. Track blood units, expiration dates, and types in real-time."
-                        />
-                        <BenefitCard
-                            icon={Users}
-                            title="Increased Donor Visits"
-                            description="Your blood bank becomes visible to thousands of potential donors nearby who can book appointments."
-                        />
-                        <BenefitCard
-                            icon={Zap}
-                            title="Emergency Visibility"
-                            description="Broadcast shortages instantly to the community and get immediate donor response."
-                        />
-                        <BenefitCard
-                            icon={Award}
-                            title="Community Trust"
-                            description="Build trust with transparency. Verified blood banks get a specialized badge and higher ranking."
-                        />
-                    </div>
-                </div>
-            </section>
-
-            <section className="bb-integration">
-                <div className="container integration-container">
-                    <div className="integration-content">
-                        <h2>Seamless Integration</h2>
-                        <ul className="integration-list">
-                            <li><CheckCircle size={20} className="check-icon-sm" /> Cloud-based secure platform</li>
-                            <li><CheckCircle size={20} className="check-icon-sm" /> 24/7 Support and Training</li>
-                            <li><CheckCircle size={20} className="check-icon-sm" /> Compatible with existing hospital systems</li>
-                            <li><CheckCircle size={20} className="check-icon-sm" /> Analytics and Reporting tools</li>
-                        </ul>
-                    </div>
-                    <div className="integration-cta">
-                        <h3>Ready to upgrade your blood bank?</h3>
-                        <Button variant="secondary">Request Demo</Button>
                     </div>
                 </div>
             </section>

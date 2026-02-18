@@ -1,73 +1,50 @@
 import React from 'react';
-import { Search, Radio, Calendar, Database, Bell, Shield } from 'lucide-react';
-import Button from '../components/Button';
+import {
+    Search, Shield, Clock, Bell, Activity, MapPin,
+    Smartphone, Users, BarChart3, HeartPulse, Globe, Lock
+} from 'lucide-react';
 import './Features.css';
 
-const Features = () => {
-    const featuresList = [
-        {
-            icon: Search,
-            title: "Real-time Blood Search",
-            description: "Instantly search for blood availability by blood group and location. our advanced algorithm finds the nearest blood banks with stock."
-        },
-        {
-            icon: Radio,
-            title: "Emergency Request Broadcasting",
-            description: "When you post an emergency request, we instantly notify all nearby compatible donors and blood banks via push notifications and SMS."
-        },
-        {
-            icon: Calendar,
-            title: "Donation Scheduling",
-            description: "Book appointments at blood banks to donate blood. Avoid long queues and donate at your convenience."
-        },
-        {
-            icon: Database,
-            title: "Live Inventory Dashboard",
-            description: "Blood banks get a dedicated dashboard to manage their stock levels, approve donation requests, and coordinate with other blood banks."
-        },
-        {
-            icon: Bell,
-            title: "Smart Notifications",
-            description: "Get alerted only when your blood type is needed nearby. We value your time and altruism."
-        },
-        {
-            icon: Shield,
-            title: "Verified Community",
-            description: "All donors and blood banks are verified to ensure safety and trust within the RaktSetu ecosystem."
-        }
-    ];
+const features = [
+    { icon: Search, title: 'Real-Time Blood Search', desc: 'Search blood availability across registered centers by group, component, and location.' },
+    { icon: Bell, title: 'Smart Notifications', desc: 'Receive instant alerts for emergency requests, donation camps, and appointment reminders.' },
+    { icon: MapPin, title: 'Nearby Center Finder', desc: 'GPS-based discovery of the nearest blood banks and donation camps in your area.' },
+    { icon: Shield, title: 'Verified Blood Banks', desc: 'All registered centers undergo verification to ensure safety and reliability.' },
+    { icon: Activity, title: 'Health Dashboard', desc: 'Track your donation history, upcoming appointments, and health screening records.' },
+    { icon: Clock, title: 'Quick Registration', desc: 'Simple, fast donor registration process — sign up in under 2 minutes.' },
+    { icon: Users, title: 'Community Network', desc: 'Join thousands of active donors making a difference across India every day.' },
+    { icon: BarChart3, title: 'Analytics for Blood Banks', desc: 'Comprehensive inventory management, usage trends, and demand forecasting tools.' },
+    { icon: Smartphone, title: 'Mobile Responsive', desc: 'Seamless experience across all devices — search and donate on the go.' },
+    { icon: HeartPulse, title: 'Emergency Requests', desc: 'One-click emergency blood requests that notify all nearby compatible donors instantly.' },
+    { icon: Globe, title: 'Pan-India Coverage', desc: 'Network spanning 28+ states with 500+ registered blood centers nationwide.' },
+    { icon: Lock, title: 'Data Privacy', desc: 'End-to-end encryption and strict data policies protect your personal health information.' },
+];
 
+const Features = () => {
     return (
         <div className="features-page">
             <section className="features-hero">
-                <div className="container text-center">
-                    <h1 className="section-title">Powerful Features to Save Lives</h1>
-                    <p className="section-subtitle">Technology that bridges the gap between distress and hope.</p>
-                </div>
-            </section>
-
-            <section className="features-grid-section">
                 <div className="container">
-                    <div className="features-showcase-grid">
-                        {featuresList.map((feature, index) => (
-                            <div key={index} className="feature-detail-card">
-                                <div className="feature-icon-wrapper">
-                                    <feature.icon size={32} />
-                                </div>
-                                <h3>{feature.title}</h3>
-                                <p>{feature.description}</p>
-                            </div>
-                        ))}
-                    </div>
+                    <h1>Platform Features</h1>
+                    <p>Everything you need for blood availability, donation, and management — in one platform.</p>
                 </div>
             </section>
 
-            <section className="features-cta">
-                <div className="container text-center">
-                    <h2>Ready to experience RaktSetu?</h2>
-                    <div className="cta-group">
-                        <Button variant="primary">Find Blood</Button>
-                        <Button variant="secondary">Register as Donor</Button>
+            <section className="section">
+                <div className="container">
+                    <div className="features-grid">
+                        {features.map((feature, index) => {
+                            const Icon = feature.icon;
+                            return (
+                                <div key={index} className="feature-item">
+                                    <div className="feature-icon-wrap">
+                                        <Icon size={24} />
+                                    </div>
+                                    <h3>{feature.title}</h3>
+                                    <p>{feature.desc}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

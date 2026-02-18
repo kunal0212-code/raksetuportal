@@ -1,16 +1,102 @@
-# React + Vite
+# RaktSetu — India's Blood Availability & Donation Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RaktSetu is a modern web platform that connects blood donors, patients, and blood banks across India. It provides real-time blood availability search, donor registration, and emergency blood request capabilities.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Technology | Purpose |
+|---|---|
+| **React 19** | UI framework |
+| **React Router 7** | Client-side routing |
+| **Vite 7** | Build tool & dev server |
+| **Lucide React** | Icon library |
+| **Vanilla CSS** | Styling (no Tailwind) |
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔍 **Blood Availability Search** — Filter by state, district, blood group, and component
+- 📍 **Blood Center Directory** — Find nearby registered blood banks
+- ❤️ **Donor Registration** — Simple signup process with eligibility criteria
+- 🏥 **Blood Bank Dashboard** — Inventory management panels for registered centers
+- 🚨 **Emergency Requests** — Urgent blood request notifications
+- 📊 **Analytics** — Usage trends and demand forecasting
+- 🔒 **Data Privacy** — Encrypted personal health information
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+- Node.js 18+
+- npm 9+
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/raktsetu-platform.git
+cd raktsetu-platform
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Button.jsx/css        # Reusable button system
+│   ├── ErrorBoundary.jsx     # React error boundary
+│   ├── Footer.jsx/css        # Site footer
+│   ├── Layout.jsx/css        # Page layout wrapper
+│   ├── Navbar.jsx/css        # Navigation with dropdowns
+│   └── ScrollToTop.jsx       # Scroll restoration
+├── pages/
+│   ├── Home.jsx/css          # Landing page with 7 sections
+│   ├── Features.jsx/css      # Platform features grid
+│   ├── HowItWorks.jsx/css    # Tabbed process guide
+│   ├── ForBloodBanks.jsx/css # Blood bank onboarding
+│   ├── About.jsx/css         # Mission & values
+│   ├── Contact.jsx/css       # Contact form with validation
+│   ├── BloodAvailability.jsx/css # Search filters & results
+│   ├── PrivacyPolicy.jsx     # Privacy policy
+│   ├── Terms.jsx             # Terms of service
+│   ├── NotFound.jsx/css      # 404 page
+│   └── Legal.css             # Shared legal page styles
+├── App.jsx                   # Routes + lazy loading
+├── main.jsx                  # Entry point
+└── index.css                 # Global design system
+```
+
+## Design
+
+The UI follows a **government portal** aesthetic inspired by India's e-RaktKosh platform:
+- Dark maroon primary color (#8B0000)
+- Two-tier header (logo + search / navigation bar)
+- Ticker bar for announcements
+- Card-based layouts with hover animations
+- Responsive across all breakpoints
+
+## Production Readiness
+
+- ✅ Full SEO (meta tags, Open Graph, Twitter cards)
+- ✅ Accessibility (skip-to-content, ARIA labels, focus-visible)
+- ✅ Error Boundary with fallback UI
+- ✅ Code splitting (lazy-loaded routes + vendor chunking)
+- ✅ 404 page for invalid routes
+- ✅ Form validation (email format, required fields)
+- ✅ robots.txt
+- ✅ Custom branded favicon
+
+## License
+
+MIT
